@@ -1,10 +1,10 @@
 # Work Log
 
-## GROUP MEMBER 1
+## Bernadette Baroi
 
-### date x
+### 5/17/23 
 
-info
+Researched for project
 
 ### date y
 
