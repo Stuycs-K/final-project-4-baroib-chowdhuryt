@@ -13,7 +13,7 @@ Imported useful libraries needed for audio files. Worked on a basic audio visual
 
 ## Tasnim Chowdhury
 
-### 5/16
+### 5/18
 
 Researched relevant libraries and viewed other projects using audio visualization
 
