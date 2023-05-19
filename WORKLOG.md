@@ -6,9 +6,9 @@
 
 Researched for project
 
-### date y
+### 5/19/23 
 
-info
+Imported useful libraries needed for audio files. Worked on a basic audio visualizer code. 
 
 
 ## Tasnim Chowdhury
