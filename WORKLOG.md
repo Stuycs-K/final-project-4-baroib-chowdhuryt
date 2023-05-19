@@ -11,11 +11,11 @@ Researched for project
 info
 
 
-## GROUP MEMBER 2
+## Tasnim Chowdhury
 
-### date x
+### 5/16
 
-info
+Researched relevant libraries and viewed other projects using audio visualization
 
 ### date y
 
