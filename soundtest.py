@@ -11,6 +11,8 @@ import soundfile as sf
 from pydub import AudioSegment
 from pydub.playback import play
 
+from scipy import signal
+
 # PREPARING THE AUDIO DATA
 
 # Audio file, .wav file
@@ -75,6 +77,24 @@ def showing_audiotrack():
             previousTime = time.time()
             spentTime = 0
 
+def audio_diff(audio1, audio2, samplerate):
+    window = signal.windows.hann(256)
+    nperseg = 256  # samples per segment
+    nooverlap = 128  # overlap between segments
+
+    #Use the fourier transformation
+    _, _, spectrogram1 = signal.spectrogram(audio1, fs=sample_rate, window=window, nperseg=nperseg, noverlap=nooverlap)
+    _, _, spectrogram2 = signal.spectrogram(audio2, fs=sample_rate, window=window, nperseg=nperseg, noverlap=nooverlap)
+
+    spectrogram_diff = spectrogram1 - spectrogram2
+
+    # Visualize the difference spectrogram
+    plt.imshow(spectrogram_diff, aspect='auto', origin='lower', cmap='coolwarm')
+    plt.colorbar(label='Magnitude difference')
+    plt.xlabel('Time')
+    plt.ylabel('Frequency')
+    plt.title('Spectrogram Difference')
+    plt.show()
 
 if __name__ == "__main__":
     p1 = Process(target=playing_audio, args=())

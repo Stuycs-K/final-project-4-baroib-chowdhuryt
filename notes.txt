@@ -1,0 +1,20 @@
+The basic parts of audio include the following:
+- Signal: Audio is represented as an electrical or digital signal that carries the information of sound. It can be analog, represented as continuous voltage variations, or digital, represented as a series of discrete numerical samples.
+- Amplitude: The amplitude refers to the magnitude or strength of the audio signal. It represents the loudness or volume of the sound. Higher amplitudes correspond to louder sounds, while lower amplitudes correspond to quieter sounds.
+- Frequency: Frequency represents the pitch or tone of the audio signal. It refers to the number of cycles or vibrations per second and is measured in Hertz (Hz). Higher frequencies correspond to higher-pitched sounds, while lower frequencies correspond to lower-pitched sounds.
+- Duration: Duration refers to the length of time that an audio signal or sound lasts. It is typically measured in seconds. Short durations represent brief sounds, while longer durations represent sustained sounds.
+- Timbre: Timbre is the quality or character of a sound that distinguishes it from other sounds, even when they have the same pitch and loudness. It is what allows us to differentiate between different musical instruments or voices. Timbre is influenced by factors such as the harmonic content, envelope, and spectral characteristics of the audio signal.
+
+Analog audio signals: variations in the amplitude (voltage) of the signal represent the changes in air pressure caused by the sound waves. The microphone captures these pressure variations and converts them into electrical voltage fluctuations, which are then amplified and transmitted as an analog audio signal. When this signal is received by a speaker or headphones, it is converted back into corresponding air pressure variations, reproducing the original sound.
+
+Digital audio: the signal is represented as a sequence of numerical samples. Each sample represents the amplitude of the audio signal at a specific point in time. These samples are typically captured at regular intervals (sampling rate) and encoded as binary numbers (bits). The sequence of these numbers forms a digital representation of the audio signal.
+
+The variations in the signal properties encode various aspects of the sound, such as its intensity, frequency content, and temporal characteristics. These variations carry the information necessary to recreate the original sound wave and convey its characteristics, including pitch, timbre, dynamics, and spatial aspects.
+
+The most common representation of audio signals in code is a one-dimensional array or a list of numerical values. Each value in the array represents the amplitude of the signal at a particular sample point in time. The sampling rate determines the number of samples taken per second, and the values of the samples represent the voltage levels of the electrical signal.
+
+Nyquist-Shannon sampling theorem, to accurately capture and reproduce audio signals, the sampling rate must be at least twice the highest frequency present in the signal. This ensures that the original waveform can be reconstructed without significant loss of information.
+
+The Fourier Transform is a mathematical algorithm that allows us to convert a signal from the time domain to the frequency domain. In the context of audio analysis, it is particularly useful for understanding the frequency components present in an audio signal.
+- By applying the Fourier Transform, the audio signal is decomposed into a series of sine and cosine waves, each representing a specific frequency component. These frequency components are known as harmonics or sinusoidal components. The Fourier Transform reveals the individual frequency components present in the audio signal and provides information about their magnitudes or strengths.
+- The output of the Fourier Transform is a spectrum, which represents the distribution of frequency components in the audio signal. The spectrum displays the amplitude or power of each frequency component. By analyzing the spectrum, we can identify dominant frequencies, harmonics, and other characteristics of the audio signal.
