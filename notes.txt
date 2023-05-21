@@ -18,3 +18,14 @@ Nyquist-Shannon sampling theorem, to accurately capture and reproduce audio sign
 The Fourier Transform is a mathematical algorithm that allows us to convert a signal from the time domain to the frequency domain. In the context of audio analysis, it is particularly useful for understanding the frequency components present in an audio signal.
 - By applying the Fourier Transform, the audio signal is decomposed into a series of sine and cosine waves, each representing a specific frequency component. These frequency components are known as harmonics or sinusoidal components. The Fourier Transform reveals the individual frequency components present in the audio signal and provides information about their magnitudes or strengths.
 - The output of the Fourier Transform is a spectrum, which represents the distribution of frequency components in the audio signal. The spectrum displays the amplitude or power of each frequency component. By analyzing the spectrum, we can identify dominant frequencies, harmonics, and other characteristics of the audio signal.
+
+WAV Files (Waveform Audio File Format)
+store uncompressed audio data
+
+1. Header: The WAV file begins with a header that contains metadata about the audio file, including the file format, audio encoding parameters, sample rate, number of channels, and more. The header provides information necessary for correctly interpreting and playing back the audio data.
+2. Audio Data: Following the header, the WAV file contains the actual audio data. The audio data is typically stored as a series of samples representing the amplitude of the audio signal at specific points in time. The number of samples determines the length of the audio file, and each sample represents the audio amplitude at a specific moment.
+3. Sample Rate: The sample rate indicates how many samples are captured per second. It defines the time resolution of the audio data. Common sample rates include 44.1 kHz (CD quality) and 48 kHz (common for digital audio).
+4. Bit Depth: The bit depth specifies the number of bits used to represent each sample. It determines the dynamic range and precision of the audio data. Common bit depths include 16-bit (CD quality) and 24-bit (high-resolution audio).
+5. Channels: WAV files can store audio data with different channel configurations. For example, mono audio has a single channel, while stereo audio has two channels (left and right). Multi-channel configurations are also possible, such as surround sound formats.
+6. Compression: WAV files typically store uncompressed audio data, meaning the audio samples are stored without any compression or loss of quality. This results in large file sizes compared to compressed audio formats like MP3 or AAC.
+7. Metadata: Besides the audio data, WAV files can also include additional metadata such as artist name, track title, album information, and more. This metadata provides descriptive information about the audio content.
