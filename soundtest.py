@@ -103,3 +103,7 @@ if __name__ == "__main__":
     p2.start()
     p1.join()
     p2.join()
+
+if __name_ == "difference":
+    p1 = Process(target=audio_diff, args=())
+    p1.start()
