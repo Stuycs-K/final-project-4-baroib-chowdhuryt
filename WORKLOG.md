@@ -10,6 +10,9 @@ Researched for project
 
 Imported useful libraries needed for audio files. Worked on a basic audio visualizer code.
 
+### 5/22/23
+worked on presentation. 
+
 
 ## Tasnim Chowdhury
 
