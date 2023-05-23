@@ -14,7 +14,7 @@ Imported useful libraries needed for audio files. Worked on a basic audio visual
 worked on presentation. Trying to get the wave visulaizer to work on a mac; it works on linux. 
 
 ### 5/23/23
-Worked on frequency modulation ecrytion. 
+Worked on frequency modulation encryption code. 
 
 
 ## Tasnim Chowdhury
