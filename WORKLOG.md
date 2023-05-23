@@ -11,7 +11,7 @@ Researched for project
 Imported useful libraries needed for audio files. Worked on a basic audio visualizer code.
 
 ### 5/22/23
-worked on presentation.
+worked on presentation. Trying to get the wave visulaizer to work on a mac; it works on linux. 
 
 
 ## Tasnim Chowdhury
