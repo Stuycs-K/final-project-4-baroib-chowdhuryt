@@ -11,7 +11,7 @@ Researched for project
 Imported useful libraries needed for audio files. Worked on a basic audio visualizer code.
 
 ### 5/22/23
-worked on presentation. Trying to get the wave visulaizer to work on a mac; it works on linux. 
+worked on presentation. Trying to get the wave visulaizer to work on a mac; it works on linux.
 
 
 ## Tasnim Chowdhury
@@ -29,3 +29,7 @@ Conducted more research on how audio works.
 
 Worked on function to show difference in spectrogram of different audios, added error handling
 and function to convert WAV file sampling rates using librosa
+
+### 5/23/23
+
+Researched frequency modulation 
