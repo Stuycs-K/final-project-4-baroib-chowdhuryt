@@ -11,7 +11,7 @@ Researched for project
 Imported useful libraries needed for audio files. Worked on a basic audio visualizer code.
 
 ### 5/22/23
-worked on presentation. 
+worked on presentation.
 
 
 ## Tasnim Chowdhury
@@ -24,3 +24,8 @@ Researched relevant libraries and viewed other projects using audio visualizatio
 
 Worked on basic audio visualizer code. Attempted makefile and audio_diff() function.
 Conducted more research on how audio works.
+
+### 5/22/23
+
+Worked on function to show difference in spectrogram of different audios, added error handling
+and function to convert WAV file sampling rates using librosa
