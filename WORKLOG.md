@@ -36,3 +36,11 @@ and function to convert WAV file sampling rates using librosa
 ### 5/23/23
 
 Researched frequency modulation 
+
+### 5/24/23
+
+Researched spectrograms and audio
+
+### 5/25/23 
+
+More research on frequency modulation for encryption 
