@@ -14,7 +14,7 @@ Imported useful libraries needed for audio files. Worked on a basic audio visual
 worked on presentation. Trying to get the wave visulaizer to work on a mac; it works on linux.
 
 ### 5/23/23
-Worked on frequency modulation encryption code. 
+Worked on frequency modulation encryption code.
 
 
 ## Tasnim Chowdhury
@@ -35,12 +35,12 @@ and function to convert WAV file sampling rates using librosa
 
 ### 5/23/23
 
-Researched frequency modulation 
+Researched frequency modulation
 
 ### 5/24/23
 
 Researched spectrograms and audio
 
-### 5/25/23 
+### 5/25/23
 
-More research on frequency modulation for encryption 
+More research on frequency modulation for encryption. Fixed issues with audio diff not working with audios with different sample rates, being different lengths, and mono/stereo. 

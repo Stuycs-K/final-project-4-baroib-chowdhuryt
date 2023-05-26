@@ -9,16 +9,18 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 import soundfile as sf
-import librosa
+from librosa import resample, load
+from soundfile import write as sf_write
 
 from pydub import AudioSegment
 from pydub.playback import play
+from scipy import signal
 
 
 # PREPARING THE AUDIO DATA
 
 # Audio file, .wav file
-wavFile = "source_file.wav"
+wavFile = "src/source_file.wav"
 
 # Retrieve the data from the wav file
 data, samplerate = sf.read(wavFile)
@@ -44,7 +46,6 @@ def playing_audio():
         play(song)
     except Exception as e:
         print("Error playing audio:", str(e))
-
 
 def showing_audiotrack():
     try:
@@ -85,44 +86,62 @@ def showing_audiotrack():
     except Exception as e:
         print("Error showing audio track:", str(e))
 
-def sr_convert(audio1, new_sr=44100):
-    # Resample the audio to the new sample rate in Hz
-    y, sr = librosa.load(audio1, sr=None)
-    y_resampled = librosa.resample(y, sr, new_sr)
+def sr_convert(audio_file_path, new_sr):
+    # Load the audio file with its original sample rate
+    audio_data, orig_sr = load(audio_file_path, sr=None)
 
-    # Save the resampled audio as a new file
-    output_path = audio1 +'_new.wav'
-    librosa.output.write_wav(output_path, y_resampled, new_sr)
-    return output_path
+    # Calculate the number of samples required in the resampled audio data
+    num_samples_required = int(round(len(audio_data) * new_sr / orig_sr))
 
-def audio_diff(audio1, audio2):
+    # Use scipy.signal.resample to resample
+    y_resampled = signal.resample(audio_data, num_samples_required)
+
+    # Save the resampled audio data as a new wav file
+    output_file_path = audio_file_path.rstrip('.wav') + '_resampled.wav'
+    sf_write(output_file_path, y_resampled, new_sr)
+
+    return output_file_path
+
+def audio_diff(audio1_file, audio2_file):
     try:
-         # Read the audio data from the WAV files
+        # Read the audio data from the WAV files
         audio1, samplerate1 = sf.read(audio1_file)
-
-        # Ensure that the sample rates are the same
-        audio2 = sr_convert(audio2, samplerate1)
         audio2, samplerate2 = sf.read(audio2_file)
 
+        # Check if audio files have the same sample rate
         if samplerate1 != samplerate2:
-            print("Error: Sample rates of the audio files do not match.")
-            exit(1);
+            print("Resampling the second audio file to match the first one.")
+            audio2_file = sr_convert(audio2_file, samplerate1)
+            audio2, samplerate2 = sf.read(audio2_file)
 
         samplerate = samplerate1
 
-        window = signal.windows.hann(256)
-        nperseg = 256  # samples per segment
-        nooverlap = 128  # overlap between segments
+        # Flatten stereo audio into mono for simplicity
+        if audio1.ndim > 1:
+            audio1 = np.mean(audio1, axis=1)
+        if audio2.ndim > 1:
+            audio2 = np.mean(audio2, axis=1)
 
-        #Use the fourier transformation
-        _, _, spectrogram1 = signal.spectrogram(audio1, fs=sample_rate, window=window, nperseg=nperseg, noverlap=nooverlap)
-        _, _, spectrogram2 = signal.spectrogram(audio2, fs=sample_rate, window=window, nperseg=nperseg, noverlap=nooverlap)
+        # Trim or extend the audio files to the same length
+        min_length = min(len(audio1), len(audio2))
+        audio1 = audio1[:min_length]
+        audio2 = audio2[:min_length]
+        print("Trimming the longer audio file to match the shorter one's length.")
 
-        spectrogram_diff = spectrogram1 - spectrogram2
+        # Determine the window size and overlap
+        window_size = min(512, min_length)  # Adjust window size if audio is shorter
+        overlap = window_size // 2
+
+        # Use the Fourier transformation to get the spectrograms
+        _, _, spectrogram1 = signal.spectrogram(audio1, fs=samplerate, window='hann', nperseg=window_size, noverlap=overlap, mode='magnitude')
+        _, _, spectrogram2 = signal.spectrogram(audio2, fs=samplerate, window='hann', nperseg=window_size, noverlap=overlap, mode='magnitude')
+
+        # Compute the spectrogram difference
+        spectrogram_diff = np.abs(spectrogram1 - spectrogram2)
 
         # Visualize the difference spectrogram
-        plt.imshow(spectrogram_diff, aspect='auto', origin='lower', cmap='coolwarm')
-        plt.colorbar(label='Magnitude difference')
+        plt.imshow(10 * np.log10(spectrogram_diff + 1e-10), aspect='auto', origin='lower', cmap='coolwarm')
+        plt.colorbar(label='Magnitude difference (dB)')
         plt.xlabel('Time')
         plt.ylabel('Frequency')
         plt.title('Spectrogram Difference')
@@ -130,13 +149,19 @@ def audio_diff(audio1, audio2):
     except Exception as e:
         print("Error calculating audio difference:", str(e))
 
-
 if __name__ == "__main__":
-    p1 = Process(target=playing_audio, args=())
+
+
+    p1 = Process(target=playing_audio(), args=())
     p1.start()
     p2 = Process(target=showing_audiotrack, args=())
     p2.start()
     p1.join()
     p2.join()
 
-    #audio_diff(audio1, audio2)
+
+    """
+    audio1 = 'src/sample-15s.wav'
+    audio2 = 'src/source_file.wav'
+    audio_diff(audio1, audio2)
+    """

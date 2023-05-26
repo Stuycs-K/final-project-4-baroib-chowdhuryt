@@ -6,5 +6,5 @@ install_libs :
 	pip3 install soundfile
 	pip3 install pydub
 	pip3 install librosa
-	sudo apt install ffmpeg
-	sudo apt-get install python3-tk
+	#sudo apt install ffmpeg
+	#sudo apt-get install python3-tk
