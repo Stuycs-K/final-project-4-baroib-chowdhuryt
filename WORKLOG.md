@@ -50,3 +50,7 @@ Researched spectrograms and audio
 ### 5/25/23
 
 More research on frequency modulation for encryption. Fixed issues with audio diff not working with audios with different sample rates, being different lengths, and mono/stereo.
+
+### 5/26/23
+
+Worked on planning presentation and testing.
