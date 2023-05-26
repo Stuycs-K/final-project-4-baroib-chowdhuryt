@@ -11,10 +11,16 @@ Researched for project
 Imported useful libraries needed for audio files. Worked on a basic audio visualizer code.
 
 ### 5/22/23
-worked on presentation. Trying to get the wave visulaizer to work on a mac; it works on linux.
+worked on presentation. Trying to get the wave visualizer to work on a mac; it works on linux.
 
 ### 5/23/23
 Worked on frequency modulation encryption code.
+
+### 5/24-25/23
+Finished frequency modulation code.
+
+###5/26/23
+Began the presentation and homework aspect of the project.
 
 
 ## Tasnim Chowdhury
@@ -43,4 +49,4 @@ Researched spectrograms and audio
 
 ### 5/25/23
 
-More research on frequency modulation for encryption. Fixed issues with audio diff not working with audios with different sample rates, being different lengths, and mono/stereo. 
+More research on frequency modulation for encryption. Fixed issues with audio diff not working with audios with different sample rates, being different lengths, and mono/stereo.
