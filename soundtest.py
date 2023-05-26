@@ -1,5 +1,3 @@
-# IMPORTING PACKAGES
-
 import time
 from multiprocessing import Process
 
@@ -16,44 +14,32 @@ from pydub import AudioSegment
 from pydub.playback import play
 from scipy import signal
 
-
-# PREPARING THE AUDIO DATA
-
-# Audio file, .wav file
-wavFile = "src/source_file.wav"
-
-# Retrieve the data from the wav file
-data, samplerate = sf.read(wavFile)
-
-n = len(data)  # the length of the arrays contained in data
-Fs = samplerate  # the sample rate
-
-# Working with stereo audio, there are two channels in the audio data.
-# Let's retrieve each channel seperately:
-ch1 = np.array([data[i][0] for i in range(n)])  # channel 1
-ch2 = np.array([data[i][1] for i in range(n)])  # channel 2
-
-# x-axis and y-axis to plot the audio data
-time_axis = np.linspace(0, n / Fs, n, endpoint=False)
-sound_axis = ch1
-
-# plt.plot(time_axis, sound_axis)
-# plt.show()
-
-def playing_audio():
+def playing_audio(file):
     try:
-        song = AudioSegment.from_wav(wavFile)
+        song = AudioSegment.from_wav(file)
         play(song)
     except Exception as e:
         print("Error playing audio:", str(e))
 
-def showing_audiotrack():
+def showing_audiotrack(file):
     try:
-        # We use a variable previousTime to store the time when a plot update is made
-        # and to then compute the time taken to update the plot of the audio data.
-        previousTime = time.time()
+         # Retrieve the data from the wav file
+        data, samplerate = sf.read(file)
 
-        # Turning the interactive mode on
+        n = len(data)  # the length of the arrays contained in data
+        Fs = samplerate  # the sample rate
+
+        # Working with stereo audio, there are two channels in the audio data.
+        # Let's retrieve each channel seperately:
+        ch1 = np.array([data[i][0] for i in range(n)])  # channel 1
+        ch2 = np.array([data[i][1] for i in range(n)])  # channel 2
+
+        # x-axis and y-axis to plot the audio data
+        time_axis = np.linspace(0, n / Fs, n, endpoint=False)
+        sound_axis = ch1
+
+        # store the time when a plot update is made + compute the time taken to update the plot of the audio data.
+        previousTime = time.time()
         plt.ion()
 
         # Each time we go through a number of samples in the audio data that corresponds to one second of audio,
@@ -85,6 +71,14 @@ def showing_audiotrack():
                 spentTime = 0
     except Exception as e:
         print("Error showing audio track:", str(e))
+
+def run_audio_processes(wavFile):
+    p1 = Process(target=playing_audio, args=(wavFile,))
+    p1.start()
+    p2 = Process(target=showing_audiotrack, args=(wavFile,))
+    p2.start()
+    p1.join()
+    p2.join()
 
 def sr_convert(audio_file_path, new_sr):
     # Load the audio file with its original sample rate
@@ -150,15 +144,10 @@ def audio_diff(audio1_file, audio2_file):
         print("Error calculating audio difference:", str(e))
 
 if __name__ == "__main__":
-
-
-    p1 = Process(target=playing_audio(), args=())
-    p1.start()
-    p2 = Process(target=showing_audiotrack, args=())
-    p2.start()
-    p1.join()
-    p2.join()
-
+    """
+    wavFile = "src/source_file.wav"
+    run_audio_processes(wavFile)
+    """
 
     """
     audio1 = 'src/sample-15s.wav'
