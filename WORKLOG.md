@@ -54,3 +54,9 @@ More research on frequency modulation for encryption. Fixed issues with audio di
 ### 5/26/23
 
 Worked on planning presentation and testing.
+
+## Resources
+https://www.joelstrait.com/digital_audio_primer/
+https://wavefilegem.com/how_wave_files_work.html
+https://sumit-arora.medium.com/audio-steganography-the-art-of-hiding-secrets-within-earshot-part-2-of-2-c76b1be719b3
+https://analyticsindiamag.com/hands-on-tutorial-on-visualizing-spectrograms-in-python/
