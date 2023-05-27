@@ -1,5 +1,11 @@
 run :
-	python3 soundtest.py
+	@python3 soundtest.py
+
+audio_track :
+	@python3 soundtest.py "single" $(ARGS)
+
+audio_diff :
+	@python3 soundtest.py "double" $(ARGS)
 
 install_libs :
 	pip3 install matplotlib

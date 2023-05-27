@@ -1,4 +1,5 @@
 import time
+import sys
 from multiprocessing import Process
 
 import matplotlib
@@ -143,14 +144,24 @@ def audio_diff(audio1_file, audio2_file):
     except Exception as e:
         print("Error calculating audio difference:", str(e))
 
+def main(func, file1, file2=""):
+    if (func == "single"):
+        run_audio_processes(file1)
+    if (func == "double"):
+        audio_diff(file1, file2)
+
 if __name__ == "__main__":
+    if (sys.argv[1] == "single"):
+        main(sys.argv[1], sys.argv[2])
+    if (sys.argv[1] == "double"):
+        print(sys.argv[3])
+        main(sys.argv[1], sys.argv[2], sys.argv[3])
+
     """
     wavFile = "src/source_file.wav"
     run_audio_processes(wavFile)
-    """
-
 
     audio1 = 'src/sample-15s.wav'
     audio2 = 'src/source_file.wav'
     audio_diff(audio1, audio2)
-     
+    """
