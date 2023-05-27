@@ -7,7 +7,8 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 import soundfile as sf
-import librosa
+from librosa import resample, load
+from soundfile import write as sf_write
 
 from pydub import AudioSegment
 from pydub.playback import play
@@ -81,17 +82,17 @@ def run_audio_processes(wavFile):
 
 def sr_convert(audio_file_path, new_sr):
     # Load the audio file with its original sample rate
-    audio_data, orig_sr = librosa.load(audio_file_path, sr=None)
+    audio_data, orig_sr = load(audio_file_path, sr=None)
 
     # Calculate the number of samples required in the resampled audio data
     num_samples_required = int(round(len(audio_data) * new_sr / orig_sr))
 
     # Use scipy.signal.resample to resample
-    y_resampled = signal.librosa.resample(audio_data, num_samples_required)
+    y_resampled = signal.resample(audio_data, num_samples_required)
 
     # Save the resampled audio data as a new wav file
     output_file_path = audio_file_path.rstrip('.wav') + '_resampled.wav'
-    sf.write(output_file_path, y_resampled, new_sr)
+    sf_write(output_file_path, y_resampled, new_sr)
 
     return output_file_path
 
@@ -143,12 +144,13 @@ def audio_diff(audio1_file, audio2_file):
         print("Error calculating audio difference:", str(e))
 
 if __name__ == "__main__":
-
+    """
     wavFile = "src/source_file.wav"
     run_audio_processes(wavFile)
-
     """
+
+
     audio1 = 'src/sample-15s.wav'
     audio2 = 'src/source_file.wav'
     audio_diff(audio1, audio2)
-    """
+     
