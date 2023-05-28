@@ -6,7 +6,7 @@
  ![image](https://github.com/Stuycs-K/final-project-4-baroib-chowdhuryt/assets/90805264/1a6a950c-046f-4e61-acd4-200f870fa5db)
  
 6. **Duration** length of time that an audio signal or sound lasts. Short durations represent brief sounds, while longer durations represent sustained sounds.
-7. **Timbre** quality or character of a sound that distinguishes it from others. It is influenced by factors such as harmonic content, envelope, and spectral characteristics.
+7. **Timbre** quality or character of a sound that distinguishes it from others. It is influenced by factors such as harmonic content, envelope, and spectral characteristics. It allows us to differentiate between different musical instruments or voices, even when they are playing the same note at the same volume.
 
 ## Analog Audio Signals:
    - Represented as variations in the amplitude (voltage) that correspond to changes in air pressure caused by sound waves.
