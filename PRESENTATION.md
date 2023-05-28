@@ -33,7 +33,7 @@ The **sampling rate** determines the number of samples taken per second, and the
 According to the **Nyquist-Shannon sampling theorem**, to accurately capture and reproduce audio signals, the sampling rate must be at least twice the highest frequency present in the signal. This ensures that the original waveform can be reconstructed without significant loss of information.
 
 ### Fourier Transform
-- We use the Fourier Transforma to converts a signal from the time domain to the frequency domain- to convert our samples array to a waveform
+- We use the Fourier Transform to converts a signal from the time domain to the frequency domain- to convert our samples array to a waveform
 - It decomposes the audio signal into sine and cosine waves (harmonics) representing specific frequency components.
 - Reveals frequency components and provides information about their magnitudes.
 
