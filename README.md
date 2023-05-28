@@ -11,6 +11,6 @@
 - Viewing the differences in waveforms between audio1.wav and audio2.wav ```make audio_diff ARGS="[path to audio1.wav] [path to audio2.wav]"``` This function can only take in mono/stereo audio and can only plot for as long as the shorter audio.
 5. Frequency Modulation
 
-### PRESENTATION
+### [PRESENTATION](PRESENTATION.md)
 
-### HOMEWORK
+### [HOMEWORK](HOMEWORK.md)
