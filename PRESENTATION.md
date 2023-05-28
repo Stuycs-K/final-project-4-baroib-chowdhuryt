@@ -63,7 +63,10 @@ According to the **Nyquist-Shannon sampling theorem**, to accurately capture and
 - ```signal.spectrogram``` takes in the audio signal, sample rate, type of window, length of each window in samples, overlap btwn. consecutive windows and mode of spectogram computation (magnitude, angle, power). 
 - It then *windows* or tapers the edges of the signal to improve frequency resolution. For each windowed segment, the function applies a Fourier Transform to convert the signal to frequency components. 
 - It calculates either the magnitude, angle, or power spectrum of each segment. The power spectrum represents the distribution of signal power across different frequencies. 
-  - 
+  - Magnitude: The magnitude represents the strength or amplitude of the frequency component. It indicates how much energy or     power is present at a particular frequency. The magnitude spectrum is often used to analyze the frequency content of an audio   signal. It provides information about the intensity or loudness of different frequency components.
+  - Angle: The angle, also known as the phase, represents the phase shift of the frequency component. It indicates the relative   timing or alignment of the sinusoidal component with respect to a reference point. The phase spectrum is useful for             analyzing the temporal characteristics and synchronization of different frequency components.
+  - Power: The power spectrum represents the power of the frequency component. It is calculated by squaring the magnitude         spectrum. The power spectrum provides a measure of the energy distribution across different frequencies in the audio signal.   It is commonly used in applications such as audio equalization and filtering.
+
 - Finally, to smooth the spectrogram and reduce the effects of windowing on the frequency resolution, the function uses overlap between segments. It combines the power spectra of adjacent segments by averaging them. It returns:
   - f: The array of frequency points corresponding to the rows of the spectrogram.
   - t: The array of time points corresponding to the columns of the spectrogram.
