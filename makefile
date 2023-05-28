@@ -1,17 +1,17 @@
 run :
-	@python3 soundtest.py
+	@python3 visualizer.py
 
 audio_track :
-	@python3 soundtest.py "single" $(ARGS)
+	@python3 visualizer.py "single" $(ARGS)
 
 audio_diff :
-	@python3 soundtest.py "double" $(ARGS)
+	@python3 visualizer.py "double" $(ARGS)
 
 install_libs :
-	pip3 install matplotlib
-	pip3 install soundfile
-	pip3 install pydub
-	pip3 install librosa
-	pip3 install scipy
+	@pip3 install matplotlib
+	@pip3 install soundfile
+	@pip3 install pydub
+	@pip3 install librosa
+	@pip3 install scipy
 	#sudo apt install ffmpeg
 	#sudo apt-get install python3-tk
