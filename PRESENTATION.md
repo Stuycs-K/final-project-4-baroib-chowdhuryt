@@ -47,7 +47,7 @@ According to the **Nyquist-Shannon sampling theorem**, to accurately capture and
 3. **Sample Rate and Bit Depth** Sample rate determines the number of samples captured per second, defining the time resolution. Bit depth specifies the number of bits used to represent each sample, affecting dynamic range and precision.
 4. **Channels and Compression** WAV files support different channel configurations (e.g., mono, stereo). They typically store uncompressed audio data, resulting in large file sizes. Metadata can also be included in WAV files, providing additional descriptive information about the audio.
 
-*run ```audio_track ARGS="src/sample1..wav"``` to play audio from src/sample1.wav and view its waveform* 
+*run ```make audio_track ARGS="src/sample1.wav"``` to play audio from src/sample1.wav and view its waveform* 
 
 # FREQUENCY MODULATION
-*run ```audio_diff ARGS="src/sample1..wav src/sample2..wav"``` to view the differences between audio1 and audio2* 
+*run ```make audio_diff ARGS="src/sample1.wav src/sample2.wav"``` to view the differences between audio1 and audio2* 
