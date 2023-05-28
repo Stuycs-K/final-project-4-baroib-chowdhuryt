@@ -18,8 +18,16 @@
    - Samples are captured at regular intervals (sampling rate) and encoded as binary numbers (bits).
    - Digital audio enables accurate representation and reproduction of the original sound.
 
-# Plotting Audio
-The variations in the signal properties encode various aspects of the sound, such as its intensity, frequency content, and temporal characteristics. These variations carry the information necessary to recreate the original sound wave and convey its characteristics, including pitch, timbre, dynamics, and spatial aspects.
+# Playing and Plotting Audio
+
+from ```visualizer.py```:
+
+1. ```playing_audio(file)``` This function is responsible for playing an audio file using the AudioSegment and play functions from the Pydub library. It takes the path of the audio file as input. First, it uses AudioSegment.from_wav to load the WAV file into an AudioSegment object called song. Then, it plays the audio using the play function, which plays the audio segment using the system's default audio player. If any error occurs, it prints the error message.
+- ```Pydub``` is a Python library that provides a high-level interface for manipulating audio files. It is built on top of other audio processing libraries such as FFmpeg and Libav. Pydub allows you to perform various operations on audio files, such as slicing, concatenation, volume adjustment, and format conversion. The ```AudioSegment``` class from Pydub allows us to load, manipulate, export, and playback audio. 
+2. ```showing_audiotrack(file)``` This function displays a plot of the audio waveform from a WAV file using the sf.read function from the soundfile library and the plot and related functions from the matplotlib library. It takes the path of the audio file as input. It first reads the audio data and sample rate from the WAV file using sf.read. It then retrieves the channel data from the audio data and assigns them to separate arrays (ch1 and ch2) for stereo audio. It creates the x-axis and y-axis values for plotting using np.linspace and the sample rate. It sets up the plot and updates it periodically based on the defined updatePeriodicity to show the progression of the audio track. The plot shows the audio waveform over time with a red line indicating the current position. If any error occurs, it prints the error message.
+- ```Soundfile``` is a Python library that helps you read and write audio files. We used it to extract the audio data and sample rate from the WAV file. The returned values are assigned to the variables data and samplerate.
+
+The variations in the signal properties encode various aspects of the sound, such as its intensity, frequency content, and temporal characteristics. These variations carry the information necessary to recreate the original sound wave and convey its characteristics, including pitch, timbre, dynamics, and spatial aspects. 
 
 The most common representation of audio signals in code is an array of the amplitudes of the signal at a particular sample point in time. 
 The **sampling rate** determines the number of samples taken per second, and the values of the samples represent the voltage levels of the electrical signal.
@@ -30,18 +38,37 @@ The **sampling rate** determines the number of samples taken per second, and the
 
 - If the sample rate is 44100 Hz (samples per second), it means that 44100 amplitudes were recorded per second. Each amplitude value in the array corresponds to the amplitude of the audio signal at a specific sample point in time.
 
+3. ```sr_convert(audio_file_path, new_sr)``` This function is used to resample an audio file to a new sample rate using the ```scipy.signal.resample``` function and then save the resampled audio as a new WAV file using the soundfile library.
+- ```Scipy.signal``` is a powerful Python subpackage that helps with signal processing through tools to: filter, fourier transforms, convolution, spectrograms, generate waveforms, resample signals.
+- It uses the ```signal.resample``` function from the ```scipy``` library to resample the audio data to the desired sample rate. It performs the resampling by interpolating the audio samples to create the new samples at the desired rate.
+- It uses the ```sf_write``` function from the ```soundfile``` library to write the resampled audio data to the output file path with the desired sample rate.
+
 According to the **Nyquist-Shannon sampling theorem**, to accurately capture and reproduce audio signals, the sampling rate must be at least twice the highest frequency present in the signal. This ensures that the original waveform can be reconstructed without significant loss of information.
 
 ### Fourier Transform
-- We use the Fourier Transform to converts a signal from the time domain to the frequency domain- to convert our samples array to a waveform
+- We use the Fourier Transform to converts a signal from the time domain to the frequency domain- to convert our samples array to a waveform; it is a mathematical formula
+
+![image](https://github.com/Stuycs-K/final-project-4-baroib-chowdhuryt/assets/90805264/155355e3-aeda-497e-b735-7f739f552335)
+
 - It decomposes the audio signal into sine and cosine waves (harmonics) representing specific frequency components.
 - Reveals frequency components and provides information about their magnitudes.
 
-![image](https://github.com/Stuycs-K/final-project-4-baroib-chowdhuryt/assets/90805264/155355e3-aeda-497e-b735-7f739f552335)
+![image](https://github.com/Stuycs-K/final-project-4-baroib-chowdhuryt/assets/90805264/e9bc8e09-0e47-41fe-a062-88d8e28f1d07)
 
 ## Spectrum Analysis
 - The output of the Fourier Transform is a spectrum representing the distribution of frequency components.
 - Analyzing the spectrum helps identify dominant frequencies, harmonics, and other characteristics of the audio signal.
+
+4. ```audio_diff(audio1_file, audio2_file)``` function compares two audio files to calculate and visualize the spectrogram difference between them using ```signal.spectrogram``` from ```scipy``` and ```matplotlib``` to show a spectrogram that is displayed as a color map, with logarithmic scaling of the magnitude difference. The resulting plot shows the difference in magnitude between the spectrograms in dB.
+- ```signal.spectrogram``` takes in the audio signal, sample rate, type of window, length of each window in samples, overlap btwn. consecutive windows and mode of spectogram computation (magnitude, angle, power). 
+- It then *windows* or tapers the edges of the signal to improve frequency resolution. For each windowed segment, the function applies a Fourier Transform to convert the signal to frequency components. 
+- It calculates either the magnitude, angle, or power spectrum of each segment. The power spectrum represents the distribution of signal power across different frequencies. 
+  - 
+- Finally, to smooth the spectrogram and reduce the effects of windowing on the frequency resolution, the function uses overlap between segments. It combines the power spectra of adjacent segments by averaging them. It returns:
+  - f: The array of frequency points corresponding to the rows of the spectrogram.
+  - t: The array of time points corresponding to the columns of the spectrogram.
+  - Sxx: The 2-D array containing the spectrogram values. Each element represents the power or magnitude of the frequency
+    component at a specific time and frequency   
 
 # WAV FILES (Waveform Audio File Format) 
 1. **Header** WAV files begin with a header containing metadata about the audio file. Metadata includes format, encoding parameters, sample rate, number of channels, etc.
