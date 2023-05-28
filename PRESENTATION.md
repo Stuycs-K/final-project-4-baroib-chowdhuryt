@@ -51,3 +51,5 @@ According to the **Nyquist-Shannon sampling theorem**, to accurately capture and
 
 # FREQUENCY MODULATION
 *run ```make audio_diff ARGS="src/sample1.wav src/sample2.wav"``` to view the differences between audio1 and audio2* 
+
+The modulation index is the ratio of the frequency deviation of the modulated signal to the message signal bandwidth. Takes the dominant frquency in both wav files to FM
