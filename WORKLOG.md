@@ -19,10 +19,10 @@ Worked on frequency modulation encryption code.
 ### 5/24-25/23
 Finished frequency modulation code.
 
-###5/26/23
+### 5/26/23
 Began the presentation and homework aspect of the project.
 
-###5/27-29/23
+### 5/27-29/23
 Testing the project, working on presentation, homework, and readme. 
 
 
@@ -54,12 +54,13 @@ Researched spectrograms and audio
 
 More research on frequency modulation for encryption. Fixed issues with audio diff not working with audios with different sample rates, being different lengths, and mono/stereo.
 
-### 5/26/23
+### 5/26/23 - 5/29/23 
 
-Worked on planning presentation and testing.
+Worked on planning presentation and testing. Finished audio basics, wav files, audio playing and plotting section of presentation. Added more audios to src/ and did finishing touches. 
 
-## Resources
-https://www.joelstrait.com/digital_audio_primer/
-https://wavefilegem.com/how_wave_files_work.html
-https://sumit-arora.medium.com/audio-steganography-the-art-of-hiding-secrets-within-earshot-part-2-of-2-c76b1be719b3
-https://analyticsindiamag.com/hands-on-tutorial-on-visualizing-spectrograms-in-python/
+## Resources Used 
+
+- [Digital Audio Primer](https://www.joelstrait.com/digital_audio_primer/)
+- [WAV Files](https://wavefilegem.com/how_wave_files_work.html)
+- [Hiding Secret Messages in Audio](https://sumit-arora.medium.com/audio-steganography-the-art-of-hiding-secrets-within-earshot-part-2-of-2-c76b1be719b3)
+- [Spectrograms in Python](https://analyticsindiamag.com/hands-on-tutorial-on-visualizing-spectrograms-in-python/)
