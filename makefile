@@ -1,6 +1,3 @@
-run :
-	@python3 visualizer.py
-
 audio_track :
 	@python3 visualizer.py "single" $(ARGS)
 
