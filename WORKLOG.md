@@ -22,6 +22,9 @@ Finished frequency modulation code.
 ###5/26/23
 Began the presentation and homework aspect of the project.
 
+###5/27-29/23
+Testing the project, working on presentation, homework, and readme. 
+
 
 ## Tasnim Chowdhury
 
