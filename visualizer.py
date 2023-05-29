@@ -211,6 +211,8 @@ def main(func, file1, file2=""):
         run_audio_processes(file1)
     if (func == "double"):
         audio_diff(file1, file2)
+    if (func == "FMdouble"):
+        fm(file1, file2)
 
 if __name__ == "__main__":
     if (sys.argv[1] == "single"):
@@ -218,6 +220,9 @@ if __name__ == "__main__":
     if (sys.argv[1] == "double"):
         print(sys.argv[3])
         main(sys.argv[1], sys.argv[2], sys.argv[3])
+    if (sys.argv[1] == "FMdouble"):
+        main(sys.argv[1], sys.argv[2], sys.argv[3])
+
 
     """
     wavFile = "src/source_file.wav"

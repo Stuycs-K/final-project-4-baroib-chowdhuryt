@@ -8,7 +8,7 @@ audio_diff :
 	@python3 visualizer.py "double" $(ARGS)
 
 frequency_mod :
-	@python3 visualizer.py $(ARGS)
+	@python3 visualizer.py "FMdouble" $(ARGS)
 
 install_libs :
 	@pip3 install matplotlib
