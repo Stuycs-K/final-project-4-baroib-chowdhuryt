@@ -84,4 +84,6 @@ According to the **Nyquist-Shannon sampling theorem**, to accurately capture and
 # FREQUENCY MODULATION
 Frequency modulation (FM) is the encoding of information in a carrier wave by varying the instantaneous frequency of the wave. The modulation index is the ratio of the frequency deviation of the modulated signal to the message signal bandwidth. Our FM has a deviation of 1. Typically the carrier signal has constant amplitude, frequency, and phase. Since our audios aren't constant, we modulated every one second of the fifteen seconds of two audios and concatenated it. Our FM audio has varying amplitudes and frequencies.  
 
+https://www.google.com/url?sa=i&url=https%3A%2F%2Felectronics.stackexchange.com%2Fquestions%2F586810%2Ffrequency-modulation-voltage-formula-derivation&psig=AOvVaw1fVzA_zNVyYoCC1hcl8IH7&ust=1685469466802000&source=images&cd=vfe&ved=0CA0QjRxqFwoTCNj89JmNm_8CFQAAAAAdAAAAABAD![image](https://github.com/Stuycs-K/final-project-4-baroib-chowdhuryt/assets/73133134/4e6f8373-6576-4e2c-be10-2a7f877d66ce)
+
 *run ```make audio_diff ARGS="src/sample1.wav src/sample2.wav"``` to view the modulated audio of audio1 and audio2*
