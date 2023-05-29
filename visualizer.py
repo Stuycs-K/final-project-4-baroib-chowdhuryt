@@ -222,11 +222,4 @@ if __name__ == "__main__":
         main(sys.argv[1], sys.argv[2], sys.argv[3])
 
 
-    """
-    wavFile = "src/source_file.wav"
-    run_audio_processes(wavFile)
-
-    audio1 = 'src/sample-15s.wav'
-    audio2 = 'src/source_file.wav'
-    audio_diff(audio1, audio2)
-    """
+  
