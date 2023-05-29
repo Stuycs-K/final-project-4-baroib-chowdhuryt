@@ -217,7 +217,6 @@ if __name__ == "__main__":
     if (sys.argv[1] == "single"):
         main(sys.argv[1], sys.argv[2])
     if (sys.argv[1] == "double"):
-        print(sys.argv[3])
         main(sys.argv[1], sys.argv[2], sys.argv[3])
     if (sys.argv[1] == "FMdouble"):
         main(sys.argv[1], sys.argv[2], sys.argv[3])
