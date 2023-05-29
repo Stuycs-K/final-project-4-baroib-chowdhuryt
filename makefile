@@ -7,6 +7,9 @@ audio_track :
 audio_diff :
 	@python3 visualizer.py "double" $(ARGS)
 
+frequency_mod :
+	@python3 visualizer.py $(ARGS)
+
 install_libs :
 	@pip3 install matplotlib
 	@pip3 install soundfile

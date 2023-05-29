@@ -27,45 +27,46 @@ def freq(file, start_time, end_time):
     freq = xf[idx]
     return freq
 
-plt.close('all')
+def fm():
+    plt.close('all')
 
-# Setting up FM modulation simulation parameters
-Fs = 2000
-t = np.arange(0,0.2,1/Fs)
-b = 1 # modulation index
+    # Setting up FM modulation simulation parameters
+    Fs = 2000
+    t = np.arange(0,0.2,1/Fs)
+    b = 1 # modulation index
 
-sample1 = freq("src/source_file.wav", 0, 1000) #carrier
-sample2 = freq("src/sample-15s.wav", 0, 1000) #modulator
-fc = sample1 # carrier frequency
-fm1 = sample2 # Signal frequency-1 to construct message signal
-m_signal = np.sin(2*pi*fm1*t)
-carrier_signal = np.sin(2 * pi * fc * t)
-# Generate Frequency modulated signal
-fmd = np.sin(2*pi*fc*t + b*m_signal)
-
-for x in range(1000, 15001, 1000):
-    sample1 = freq("src/source_file.wav", 0, x) #carrier
-    sample2 = freq("src/sample-15s.wav", 0, x) #modulator
+    sample1 = freq("src/source_file.wav", 0, 1000) #carrier
+    sample2 = freq("src/sample-15s.wav", 0, 1000) #modulator
     fc = sample1 # carrier frequency
     fm1 = sample2 # Signal frequency-1 to construct message signal
-    m_signal += np.sin(2*pi*fm1*t)
-    carrier_signal += np.sin(2 * pi * fc * t)
+    m_signal = np.sin(2*pi*fm1*t)
+    carrier_signal = np.sin(2 * pi * fc * t)
     # Generate Frequency modulated signal
-    fmd += np.sin(2*pi*fc*t + b*m_signal)
+    fmd = np.sin(2*pi*fc*t + b*m_signal)
+
+    for x in range(1000, 15001, 1000):
+        sample1 = freq("src/source_file.wav", 0, x) #carrier
+        sample2 = freq("src/sample-15s.wav", 0, x) #modulator
+        fc = sample1 # carrier frequency
+        fm1 = sample2 # Signal frequency-1 to construct message signal
+        m_signal += np.sin(2*pi*fm1*t)
+        carrier_signal += np.sin(2 * pi * fc * t)
+        # Generate Frequency modulated signal
+        fmd += np.sin(2*pi*fc*t + b*m_signal)
 
 
-# Plots
-plt.subplot(3,1,1)
-plt.plot(t, m_signal)
-plt.title("Modulator Signal")
+    # Plots
+    plt.subplot(3,1,1)
+    plt.plot(t, m_signal)
+    plt.title("Modulator Signal")
 
-plt.subplot(3,1,2)
-plt.plot(t, carrier_signal)
-plt.title("Message Carrier Signal")
+    plt.subplot(3,1,2)
+    plt.plot(t, carrier_signal)
+    plt.title("Message Carrier Signal")
 
-plt.subplot(3,1,3)
-plt.plot(t, fmd)
-plt.title("Frequency Modulated Signal")
+    plt.subplot(3,1,3)
+    plt.plot(t, fmd)
+    plt.title("Frequency Modulated Signal")
 
-plt.tight_layout()
-plt.show()
+    plt.tight_layout()
+    plt.show()
