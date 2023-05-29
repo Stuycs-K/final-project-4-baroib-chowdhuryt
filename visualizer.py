@@ -34,14 +34,19 @@ def showing_audiotrack(file):
         n = len(data)  # the length of the arrays contained in data
         Fs = samplerate  # the sample rate
 
-        # Working with stereo audio, there are two channels in the audio data.
-        # Let's retrieve each channel seperately:
-        ch1 = np.array([data[i][0] for i in range(n)])  # channel 1
-        ch2 = np.array([data[i][1] for i in range(n)])  # channel 2
+        # Check if the audio is stereo or mono
+        if data.ndim > 1:
+            # Working with stereo audio, there are two channels in the audio data.
+            # Let's retrieve each channel separately:
+            ch1 = np.array([data[i][0] for i in range(n)])  # channel 1
+            ch2 = np.array([data[i][1] for i in range(n)])  # channel 2
+            sound_axis = ch1  # Use channel 1 for plotting
+        else:
+            # Mono audio, assign the single channel to sound_axis
+            sound_axis = data
 
         # x-axis and y-axis to plot the audio data
         time_axis = np.linspace(0, n / Fs, n, endpoint=False)
-        sound_axis = ch1
 
         # store the time when a plot update is made + compute the time taken to update the plot of the audio data.
         previousTime = time.time()
@@ -220,6 +225,3 @@ if __name__ == "__main__":
         main(sys.argv[1], sys.argv[2], sys.argv[3])
     if (sys.argv[1] == "FMdouble"):
         main(sys.argv[1], sys.argv[2], sys.argv[3])
-
-
-  
