@@ -17,7 +17,7 @@
   
 4. Frequency Modulation
 
-```make frequency_mod ARGS="[path to audio1.wav]"```
+```make frequency_mod ARGS="[path to audio1.wav] [path to audio2.wav]"```
 
 ### [PRESENTATION](PRESENTATION.md)
 
