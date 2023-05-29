@@ -6,7 +6,7 @@
 1. Clone the repo. If on the lab machines, ssh into either marge or cslab4-?? or cslab4-??. 
 2. Run ```make install_libs``` to install required libraries. Run  ```sudo apt install ffmpeg``` and ```sudo apt-get install python3-tk``` if not on lab machines.
 3. Audio Visualization
-- Use our sample audios from the ```src/``` directory or find your own from [link]
+- Use our sample audios from the ```src/``` directory or find your own from [here](https://soundbible.com/)
 - Play audio from audio1.wav and view its waveform. This function refreshes every 2 seconds. 
 
 ```make audio_track ARGS="[path to audio1.wav]"``` 
