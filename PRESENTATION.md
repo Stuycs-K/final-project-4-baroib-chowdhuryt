@@ -82,6 +82,6 @@ According to the **Nyquist-Shannon sampling theorem**, to accurately capture and
 *run ```make audio_track ARGS="src/sample1.wav"``` to play audio from src/sample1.wav and view its waveform* 
 
 # FREQUENCY MODULATION
-*run ```make audio_diff ARGS="src/sample1.wav src/sample2.wav"``` to view the differences between audio1 and audio2* 
+Frequency modulation (FM) is the encoding of information in a carrier wave by varying the instantaneous frequency of the wave. The modulation index is the ratio of the frequency deviation of the modulated signal to the message signal bandwidth. Our FM has a deviation of 1. Typically the carrier signal has constant amplitude, frequency, and phase. Since our audios aren't constant, we modulated every one second of the fifteen seconds of two audios and concatenated it. Our FM audio has varying amplitudes and frequencies.  
 
-The modulation index is the ratio of the frequency deviation of the modulated signal to the message signal bandwidth. Takes the dominant frquency in both wav files to FM
+*run ```make audio_diff ARGS="src/sample1.wav src/sample2.wav"``` to view the modulated audio of audio1 and audio2*
