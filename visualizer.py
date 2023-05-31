@@ -203,7 +203,7 @@ def fm(file1, file2):
     plt.title("Modulator Signal")
     plt.subplot(3,1,2)
     plt.plot(t, carrier_signal)
-    plt.title("Message Carrier Signal")
+    plt.title("Carrier Signal")
     plt.subplot(3,1,3)
     plt.plot(t, fmd)
     plt.title("Frequency Modulated Signal")
