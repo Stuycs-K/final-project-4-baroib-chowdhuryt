@@ -86,4 +86,5 @@ Frequency modulation (FM) is the encoding of information in a carrier wave by va
 
 ![image](https://github.com/Stuycs-K/final-project-4-baroib-chowdhuryt/assets/73133134/b0713c34-196a-41a3-add3-cef508d0902f)
 
-*run ```make audio_diff ARGS="src/sample1.wav src/sample2.wav"``` to view the modulated audio of audio1 and audio2*
+*run ```make audio_diff ARGS="src/sample1.wav src/sample2.wav"``` to view the spectrogram difference of audio1 and audio2*
+*run ```make frequency_mod ARGS="src/sample1.wav src/sample2.wav"``` to view the modulated audio of audio1 and audio2*
