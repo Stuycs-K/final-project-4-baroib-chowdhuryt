@@ -1,5 +1,7 @@
 # AUDIO VISUALIZATION & FREQUENCY MODULATION
 
+## Energetic Dodgers : Bernadette Baroi, Tasnim Chowdhury
+
 ### This project focuses on audio visualization techniques, providing functionalities for playing audio files, visualizing their waveforms, and analyzing spectrogram differences. It includes a frequency modulation simulation that showcases the effects of modulating frequencies on carrier signals, enhancing understanding of audio processing techniques and frequency modulation concepts.
 
 ### HOW TO USE
